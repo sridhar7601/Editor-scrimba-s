@@ -27,6 +27,8 @@
 // make jQuery play nice
 var E = $.noConflict(true);
 
+
+
 E(document).ready(function () {
     
     // INITIALIZE CODEMIRROR
@@ -168,10 +170,13 @@ E(document).ready(function () {
     
     // DEFAULTS
     // ------------------------------
-    var defaultHTML = '<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\"></script>\n<main>\n    <h1>Editor</h1>\n    <p>Real-time, responsive HTML/CSS/JS code editor</p>\n    <p>Fork me on <a href=\"https://github.com/markhillard/Editor\" target=\"_blank\">GitHub</a></p>\n</main>',
-        defaultCSS = '@import url(\"https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700\&display=swap\");\n\nhtml,body {\n    background-color: #282a36;\n    color: #fff;\n    font-family: \"Fira Code\", monospace;\n    font-weight: 400;\n    overflow: hidden;\n    text-align: center;\n}\n\nmain {\n    left: 50%;\n    position: absolute;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n}\n\nh1 {\n    font-size: 8rem;\n    font-weight: 700;\n    margin: 0;\n}\n\np {\n    font-size: 1rem;\n    letter-spacing: .03rem;\n    line-height: 1.45;\n    margin: 1rem 0;\n}\n\na {\n    color: #6d8a88;\n}\n\n@media only screen and (max-width: 600px) {\n    h1 {\n        font-size: 4rem;\n    }\n}',
-        defaultJS = '$(document).ready(function () {\n    $(\'h1\').fadeOut(800).fadeIn(800);\n    $(\'p\').first().delay(400).fadeOut(800).fadeIn(400);\n    $(\'p\').last().delay(800).fadeOut(800).fadeIn(400);\n});',
-        defaultFontSize = '100';
+    var defaultHTML = '\n<main>\n    <h1>sridhar</h1>\n  \n</main>';
+    
+
+
+    var defaultCSS = '@import url(\"https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700\&display=swap\");\n\nhtml,body {\n    background-color: #282a36;\n    color: #fff;\n    font-family: \"Fira Code\", monospace;\n    font-weight: 400;\n    overflow: hidden;\n    text-align: center;\n}\n\nmain {\n    left: 50%;\n    position: absolute;\n    top: 50%;\n    transform: translate(-50%, -50%);\n    width: 80%;\n}\n\nh1 {\n    font-size: 8rem;\n    font-weight: 700;\n    margin: 0;\n}\n\np {\n    font-size: 1rem;\n    letter-spacing: .03rem;\n    line-height: 1.45;\n    margin: 1rem 0;\n}\n\na {\n    color: #6d8a88;\n}\n\n@media only screen and (max-width: 600px) {\n    h1 {\n        font-size: 4rem;\n    }\n}';
+    var defaultJS = 'console.log("hi")';
+    var defaultFontSize = '100';
         
     
     // LOCAL STORAGE
@@ -197,8 +202,23 @@ E(document).ready(function () {
     }
     
     // load code values
-    editorHTML.setValue(localStorage.getItem('htmlcode'));
-    editorCSS.setValue(localStorage.getItem('csscode'));
+    function setNumbersWithDelay(start, end, delay) {
+        var current = start;
+      
+        var intervalId = setInterval(function() {
+          editorHTML.setValue(editorHTML.getValue() + current.toString() + " ");
+          current++;
+      
+          if (current > end) {
+            clearInterval(intervalId);
+          }
+        }, delay);
+      }
+      
+      // Example usage: Set numbers from 1 to 10 as the value with a delay of 1 second between each number
+      setNumbersWithDelay(1, 10, 1000);
+      
+          editorCSS.setValue(localStorage.getItem('csscode'));
     editorJS.setValue(localStorage.getItem('jscode'));
     
     // load font size

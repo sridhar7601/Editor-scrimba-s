@@ -2,6 +2,22 @@
 <html lang="en">
 
 <head>
+    <style>
+        #progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #progress-bar .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0;
+        }
+    </style>
 <title>Editor ~ Real-time, responsive HTML/CSS/JS code editor</title>
 
 <!--general meta information-->
@@ -14,7 +30,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--sitemap-->
-<link rel="alternate" type="application/rss+xml" title="Editor ~ Sitemap" href="./sitemap.xml">
 
 <!--favicons-->
 <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png?v=4">
@@ -123,13 +138,13 @@
 </head>
 
 <!--google analytics-->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EZCFK3S9S1"></script>
-<script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZCFK3S9S1"></script> -->
+<!-- <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-EZCFK3S9S1');
-</script>
+</script> -->
 
 <body>
 <!--loading indicator-->
@@ -195,6 +210,6 @@
 <!--end wrapper-->
 
 <!-- main -->
-<script src="./js/main.min.js"></script>
+<script src="./js/main.js"></script>
 </body>
 </html>
